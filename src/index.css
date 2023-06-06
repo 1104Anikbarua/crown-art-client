@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* #febb64 */
+/* #7d7975 */
+/* #3b97b5 */
+/* #fff */
+/* #fbede2 */
+
+.true {
+    @apply font-montserrat font-medium text-[#febb64] text-lg
+}
+
+.false {
+    @apply font-montserrat font-medium text-white text-lg
+}

@@ -6,19 +6,18 @@ import { HiOutlineSearch } from 'react-icons/hi'
 import { GiSelfLove } from 'react-icons/gi'
 import { CgShoppingCart } from 'react-icons/cg'
 import { DrawingContext } from '../../AuthProvider/AuthProvider';
-// import Swal from 'sweetalert2';
-// import UseCart from '../../Hook/UseCart/UseCart';
+import Swal from 'sweetalert2';
+
 
 const Header = () => {
 
     const [show, setShow] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [click, setClick] = useState(false);
-    // const [inputWidth, setInputWidth] = useState(0)
+
     const { user, logOutUser } = useContext(DrawingContext);
     console.log(user)
-    // const [, , carts] = UseCart();
-    // // console.log(carts)
+
     // const totalProduct = carts?.reduce((previous, current) => current.quantity + previous, 0)
     // console.log(totalProduct)
 
@@ -43,16 +42,6 @@ const Header = () => {
                 })
             })
     }
-    // const handleClick = () => {
-    //     setClick(!click);
-    //     setInputWidth(click ? 0 : 240);
-    // }
-
-    // const inputStyle = {
-    //     width: `${inputWidth}px`,
-    //     transition: 'width 0.5s ease-in-out',
-    // };
-
 
     return (
         <div className='flex items-center justify-between
@@ -65,8 +54,7 @@ const Header = () => {
                         alt="website nav logo" />
                 </Link>
                 <ul
-                    className={`flex items-center flex-col absolute duration-700 w-full bg-white lg:bg-opacity-0 shadow-sm justify-center
-                md:flex-row md:justify-end md:static md:shadow-none ${show ? 'top-[82px]' : '-top-96'}`}>
+                    className={`flex items-center flex-col absolute duration-700 w-full shadow-sm justify-center md:flex-row md:justify-end md:static md:shadow-none ${show ? 'top-[82px]' : '-top-96'}`}>
                     <li className="md:mr-5">
 
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'/'}>Home</NavLink>
@@ -116,10 +104,9 @@ const Header = () => {
                         <li className="md:mr-5">
                             <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'profile'}>
                                 <img
-                                    // title={user?.displayName}
+                                    title={user?.displayName}
                                     className='w-10 h-10 rounded-full'
-                                    // src={user?.photoURL}
-                                    src=''
+                                    src={user?.photoURL}
                                     alt="user photo" />
                             </NavLink>
                         </li>
@@ -176,7 +163,7 @@ const Header = () => {
                 onClick={() => setShow(!show)}>
                 <Hamburger
                     rounded
-                    color='blue'
+                    color='#febb64'
                     toggled={isOpen}
                     toggle={setIsOpen}></Hamburger>
             </div>
