@@ -45,7 +45,7 @@ const Header = () => {
 
     return (
         <div className='flex items-center justify-between
-         bg-[#7d7975] bg-opacity-10 shadow-sm
+         bg-[#7d7975] bg-opacity-90 shadow-sm
         fixed top-0 right-0 left-0 h-20 md:px-20 z-20'>
             <div className='flex items-center justify-between'>
                 <Link to={'/'}>
@@ -62,14 +62,14 @@ const Header = () => {
                     </li>
                     <li className="md:mr-5">
 
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'alltoy'}>Instructors</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'instructors'}>Instructors</NavLink>
 
                     </li>
                     {
                         // user&&
                         <li className="md:mr-5">
 
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'mytoy'}>Classes</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'classes'}>Classes</NavLink>
 
                         </li>
                     }
