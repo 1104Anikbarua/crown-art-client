@@ -7,11 +7,18 @@ export default {
   theme: {
     fontFamily: {
       'montserrat': ['Montserrat', 'sans-serif'],
+      'playfair': ['Playfair Display', 'serif'],
     },
     extend: {
       colors: {
         'orange': {
           100: '#febb64',
+        },
+        'fuchsia': {
+          100: '#fbede2',
+        },
+        'zinc': {
+          100: '#4e4841',
         },
       }
     },

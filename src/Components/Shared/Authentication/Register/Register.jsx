@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 import authjson from '../lottieauth.json'
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { DrawingContext } from '../../AuthProvider/AuthProvider';
+import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import Google from '../Google/Google';
 
 const Register = () => {
     // const [photo, setPhoto] = useState({})
@@ -248,13 +249,16 @@ const Register = () => {
 
                     <input
                         className='bg-orange-100 h-8 w-full max-w-sm rounded-md font-montserrat shadow-md text-xl mx-auto cursor-pointer'
-                        type="submit" />
+                        type="submit"
+                        value='Register'
+                    />
                     <p
                         className='font-montserrat font-medium mt-2 w-full max-w-sm mx-auto'>Already have an account? Please <Link
-                            state={from}
+
                             to={'/login'}
                             className='text-blue-500'>Login</Link></p>
                 </form>
+                <Google></Google>
             </div>
             <div className='w-full max-w-md mx-auto hidden md:block'>
                 <Lottie animationData={authjson} loop={true} />;

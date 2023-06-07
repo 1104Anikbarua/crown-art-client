@@ -45,7 +45,7 @@ const Header = () => {
 
     return (
         <div className='flex items-center justify-between
-         bg-[#7d7975] shadow-sm
+         bg-[#7d7975] bg-opacity-10 shadow-sm
         fixed top-0 right-0 left-0 h-20 md:px-20 z-20'>
             <div className='flex items-center justify-between'>
                 <Link to={'/'}>
@@ -88,7 +88,8 @@ const Header = () => {
                             <li className="md:mr-5">
                                 <NavLink
                                     onClick={() => handleLogOutUser()}
-                                    className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Logout</NavLink>
+                                    className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Logout
+                                </NavLink>
                             </li>
                             : <li className="md:mr-5">
                                 <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Login</NavLink>
