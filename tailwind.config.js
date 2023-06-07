@@ -11,6 +11,9 @@ export default {
     },
     extend: {
       colors: {
+        'blue': {
+          100: '#3797b8',
+        },
         'orange': {
           100: '#febb64',
         },
