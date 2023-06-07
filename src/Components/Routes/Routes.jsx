@@ -5,6 +5,10 @@ import Login from "../Shared/Authentication/Login/Login";
 import Register from "../Shared/Authentication/Register/Register";
 import Instructors from "../Pages/Home/Instructors/Instructors";
 import Classes from "../Pages/Home/Classes/Classes";
+import Dashboard from "../Dashboard/Dashboard";
+import MySelectedClass from "../Dashboard/StudentDashboard/Pages/MySelectedClass/MySelectedClass";
+import MyEnrolledClass from "../Dashboard/StudentDashboard/Pages/MyEnrolledClass/MyEnrolledClass";
+import MyPaymentPage from "../Dashboard/StudentDashboard/Pages/MyPaymentPage/MyPaymentPage";
 
 const router = createBrowserRouter([
     {
@@ -38,8 +42,17 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children: [
             {
-                path: '/selected/classes/:id',
+                path: 'classes/selected',
+                // index: {true},
                 element: <MySelectedClass></MySelectedClass>
+            },
+            {
+                path: 'classes/enrolled',
+                element: <MyEnrolledClass></MyEnrolledClass>
+            },
+            {
+                path: 'classes/payments',
+                element: <MyPaymentPage></MyPaymentPage>
             }
         ]
 

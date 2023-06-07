@@ -38,12 +38,12 @@ const Classes = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
-            navigate('/login', { state: { from: { pathname: `/selected/classes/${id}` } } })
+            navigate('/login', { state: { from: { pathname: `/classes/selected` } } })
         }
     }
     const handelSelectCourse = (id) => {
         // console.log('Hello user', id);
-        navigate(`/selected/classes/${id}`);
+        navigate(`/classes/selected`);
     }
 
     const handleCheckEligible = (_id) => {

@@ -14,11 +14,12 @@ const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const imageKey = import.meta.env.VITE_IMAGE_KEY;
     // console.log(imageKey)
-    const navigate = useNavigate()
     const location = useLocation();
+    const navigate = useNavigate()
+    // console.log(location)
     const from = location?.state || '/';
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         const name = data?.name
         const email = data?.email
         const password = data?.password

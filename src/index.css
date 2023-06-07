@@ -9,3 +9,21 @@
 .false {
     @apply font-montserrat font-medium text-white text-lg
 }
+
+.dashboard-true {
+    @apply font-montserrat text-lg font-medium text-orange-100
+}
+
+.dashboard-false {
+    @apply font-montserrat text-lg font-medium text-white
+}
+
+.drawer-side a {
+    background-color: transparent;
+}
+
+/* 
+.divider::before {
+    background-color: white;
+    border: white;
+} */
