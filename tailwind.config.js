@@ -11,7 +11,7 @@ export default {
     },
     extend: {
       colors: {
-        'blue': {
+        'my-blue': {
           100: '#3797b8',
         },
         'orange': {
@@ -26,5 +26,5 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
 }

@@ -32,6 +32,17 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: '/selected/classes/:id',
+                element: <MySelectedClass></MySelectedClass>
+            }
+        ]
+
     }
 ])
 

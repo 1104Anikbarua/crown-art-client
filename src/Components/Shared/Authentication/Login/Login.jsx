@@ -15,8 +15,9 @@ const Login = () => {
     const { verifyLogin, logInUser } = useContext(DrawingContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const navigate = useNavigate()
     const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
     const from = location?.state?.from?.pathname || '/';
     const onSubmit = data => {
         console.log(data);

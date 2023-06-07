@@ -77,7 +77,7 @@ const Header = () => {
                         user
                         &&
                         <li className="md:mr-5">
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'addtoy'}>Dashboard</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'dashboard'}>Dashboard</NavLink>
                         </li>
                     }
 

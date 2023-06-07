@@ -20,7 +20,7 @@ const PopularInstructorSection = () => {
             <div className='w-full mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     topClasses?.map((classItem) => <div
-                        className='w-full max-w-[356px] h-[459p] mx-auto text-center'
+                        className='w-full max-w-[356px] h-[250px] mx-auto text-center'
                     >
 
                         <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={classItem?.image} alt="classname image" />
