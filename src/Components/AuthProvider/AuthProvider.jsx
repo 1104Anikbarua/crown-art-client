@@ -51,9 +51,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
-    const resetPassword = (email) => {
-        return sendPasswordResetEmail(auth, email)
-    }
+    // const resetPassword = (email) => {
+    //     return sendPasswordResetEmail(auth, email)
+    // }
 
     const authInfo = {
         signUpUser,
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
         updateUser,
         logOutUser,
         googleSignUp,
-        resetPassword,
+        // resetPassword,
         user,
         loading,
         setRefresh,

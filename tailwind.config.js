@@ -8,7 +8,13 @@ export default {
     fontFamily: {
       'montserrat': ['Montserrat', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'orange': {
+          100: '#febb64',
+        },
+      }
+    },
   },
   plugins: [],
 }

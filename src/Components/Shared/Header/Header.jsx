@@ -62,16 +62,14 @@ const Header = () => {
                     </li>
                     <li className="md:mr-5">
 
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'alltoy'}>All
-                            Toys</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'alltoy'}>Instructors</NavLink>
 
                     </li>
                     {
-                        user
-                        &&
+                        // user&&
                         <li className="md:mr-5">
 
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'mytoy'}>My Toys</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'mytoy'}>Classes</NavLink>
 
                         </li>
                     }
@@ -79,12 +77,10 @@ const Header = () => {
                         user
                         &&
                         <li className="md:mr-5">
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'addtoy'}>Add Toy</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'addtoy'}>Dashboard</NavLink>
                         </li>
                     }
-                    <li className="md:mr-5">
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'blog'}>Blog</NavLink>
-                    </li>
+
 
                     {
                         user
