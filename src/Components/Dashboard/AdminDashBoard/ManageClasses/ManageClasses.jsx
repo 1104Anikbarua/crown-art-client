@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { MdNavigateNext } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { ImSpinner3 } from 'react-icons/im'
+import { BsPatchCheck } from 'react-icons/bs'
 import Swal from 'sweetalert2';
+import AdminFeedBack from '../AdminFeedBack/AdminFeedBack';
 
 const ManageClasses = () => {
+    const [show, setShow] = useState({})
     const { user } = useContext(DrawingContext);
+
     const { isLoading, refetch, data: classes } = useQuery({
 
         queryKey: ['allClasses',],
@@ -16,8 +20,9 @@ const ManageClasses = () => {
     })
     console.log(classes)
 
-    const handleSendFeedback = (id) => {
-        Navigate(`/feedback/${id}`)
+    const navigate = useNavigate();
+    const handleSendFeedback = (course) => {
+        setShow(course)
     }
     const handleDeniedCourse = (id) => {
         fetch(`http://localhost:5000/admin/denies/${id}`, {
@@ -113,7 +118,15 @@ const ManageClasses = () => {
                                     <button
                                         className="bg-orange-100 w-32 h-8 mb-5 font-playfair text-base rounded-md flex items-center justify-center uppercase">
                                         {course?.status}
-                                        <ImSpinner3 className={`ml-2 text-white  text-base ${course?.status === 'pending' ? 'animate-spin' : ''}`} />
+                                        {
+                                            course?.status === 'pending'
+                                            &&
+                                            <ImSpinner3 className={`ml-2 text-white  text-base ${course?.status === 'pending' ? 'animate-spin' : ''}`} />
+                                        }
+                                        {
+                                            course?.status === 'approved' &&
+                                            < BsPatchCheck className={`ml-2 text-white  text-base ${course?.status === 'pending' ? 'animate-spin' : ''}`} />
+                                        }
                                     </button>
 
                                     <button
@@ -132,11 +145,12 @@ const ManageClasses = () => {
 
                                 <td className=' font-playfair text-base font-normal'>
 
-                                    <button
-                                        onClick={() => handleSendFeedback(course._id)}
-                                        className="bg-orange-100 w-20 h-8 font-playfair text-base rounded-md">
+                                    <label
+                                        htmlFor="my_modal_6"
+                                        onClick={() => handleSendFeedback(course)}
+                                        className="bg-orange-100 w-32 h-8 font-playfair text-base rounded-md flex items-center justify-center">
                                         FeedBack
-                                    </button>
+                                    </label>
                                 </td>
 
                             </tr>
@@ -145,6 +159,12 @@ const ManageClasses = () => {
                     </tbody>
                 </table>
             </div>
+            {
+                show && <AdminFeedBack
+                    show={show}
+                    refetch={refetch}
+                ></AdminFeedBack>
+            }
         </div>
     );
 };
