@@ -9,6 +9,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import MySelectedClass from "../Dashboard/StudentDashboard/Pages/MySelectedClass/MySelectedClass";
 import MyEnrolledClass from "../Dashboard/StudentDashboard/Pages/MyEnrolledClass/MyEnrolledClass";
 import MyPaymentPage from "../Dashboard/StudentDashboard/Pages/MyPaymentPage/MyPaymentPage";
+import RequireAuth from "../Shared/RequireAuth/RequireAuth";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,9 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <RequireAuth>
+            <Dashboard></Dashboard>
+        </RequireAuth>,
         children: [
             {
                 path: 'classes/selected',
@@ -53,7 +56,32 @@ const router = createBrowserRouter([
             {
                 path: 'classes/payments',
                 element: <MyPaymentPage></MyPaymentPage>
+            },
+
+            // instructor routes starts here 
+            {
+                path: 'instructor/add',
+                element: <></>
+            },
+            {
+                path: 'instructor/classes',
+                element: <></>
+            },
+            // instructor routes ends here
+
+
+            // admin routes starts here
+            {
+                path: 'admin/classes/manage',
+                element: <></>
+
+            },
+            {
+                path: 'admin/classes/users',
+                element: <></>
             }
+
+            // admin routes ends here 
         ]
 
     }

@@ -19,7 +19,8 @@ const PopularInstructorSection = () => {
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Popular Instructors</h1>
             <div className='w-full mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    topClasses?.map((classItem) => <div
+                    topClasses?.map((classItem, index) => <div
+                        key={index}
                         className='w-full max-w-[356px] h-[250px] mx-auto text-center'
                     >
 

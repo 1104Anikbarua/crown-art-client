@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import google from '../../../../assets/icon/googlee.png'
+import Swal from 'sweetalert2';
 
 const Google = () => {
     const { googleSignUp } = useContext(DrawingContext);
@@ -13,10 +14,38 @@ const Google = () => {
         googleSignUp()
             .then((result) => {
                 const user = result.user;
-                navigate(from, { replace: true })
+                // console.log(user)
+                const userInfo = {
+                    name: user.displayName,
+                    email: user?.email
+                }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Sucessfully Registered',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate(from, { replace: true })
+                    })
             })
-            .catch((error) => {
-                const errorMessage = error.message;
+            .catch(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
     }
     return (

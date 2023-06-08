@@ -54,7 +54,7 @@ const Classes = () => {
             numOfStudents: course?.numOfStudents,
             availableSeats: course?.availableSeats,
             instructorName: course?.instructorName,
-            studentEmail: user?.email
+            email: user?.email
         }
         // console.log(courseInfo)
         axios.post('http://localhost:5000/classes', courseInfo)

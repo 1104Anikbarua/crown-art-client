@@ -52,29 +52,29 @@ const Register = () => {
                             updateUser(name, data?.data?.url)
                                 .then(() => {
                                     setRefresh(new Date().getTime())
-                                    // const userInfo = {
-                                    //     name: name,
-                                    //     email: email
-                                    // }
-                                    // fetch('http://localhost:5000/users', {
-                                    //     method: 'POST',
-                                    //     headers: {
-                                    //         'content-type': 'application/json'
-                                    //     },
-                                    //     body: JSON.stringify(userInfo)
-                                    // })
-                                    //     .then(res => res.json())
-                                    //     .then(data => {
-                                    //         if (data.insertedId) {
-                                    //             Swal.fire({
-                                    //                 position: 'center',
-                                    //                 icon: 'success',
-                                    //                 title: `${name} is set as Display Name`,
-                                    //                 showConfirmButton: false,
-                                    //                 timer: 1500
-                                    //             })
-                                    //         }
-                                    //     })
+                                    const userInfo = {
+                                        name: name,
+                                        email: email
+                                    }
+                                    fetch('http://localhost:5000/users', {
+                                        method: 'POST',
+                                        headers: {
+                                            'content-type': 'application/json'
+                                        },
+                                        body: JSON.stringify(userInfo)
+                                    })
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            if (data.insertedId) {
+                                                Swal.fire({
+                                                    position: 'center',
+                                                    icon: 'success',
+                                                    title: `${name} is set as Display Name`,
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                })
+                                            }
+                                        })
                                 })
                                 .catch(() => {
                                     Swal.fire({
@@ -114,7 +114,7 @@ const Register = () => {
     //     setPhoto(photo)
 
     // }
-    // console.log(errors);
+    console.log(errors);
     return (
         <div className='w-full max-w-7xl mx-auto mt-20 md:flex justify-between items-center px-5 lg:px-0 font-montserrat'>
             <div className='w-full max-w-md mx-auto hidden md:block'>
@@ -196,14 +196,14 @@ const Register = () => {
                                         value: 6,
                                         message: 'Password must be at least 6 charcter long'
                                     },
-                                    validate: {
-                                        hasCapitalLetter: (value) =>
-                                            /^(?=.*[A-Z])/.test(value) ||
-                                            'Password must contain at least one capital letter',
-                                        hasSpecialCharacter: (value) =>
-                                            /^(?=.*[^A-Za-z0-9])/.test(value) ||
-                                            'Password must contain at least one special character',
-                                    },
+                                    // validate: {
+                                    //     hasCapitalLetter: (value) =>
+                                    //         /^(?=.*[A-Z])/.test(value) ||
+                                    //         'Password must contain at least one capital letter',
+                                    //     hasSpecialCharacter: (value) =>
+                                    //         /^(?=.*[^A-Za-z0-9])/.test(value) ||
+                                    //         'Password must contain at least one special character',
+                                    // },
                                 })} />
                         {
                             errors?.password?.type === 'required' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
@@ -215,12 +215,13 @@ const Register = () => {
                         {
                             errors?.password?.type === 'pattern' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
                         }
-                        {
+                        {/* commented for easy signup later uncomment this */}
+                        {/* {
                             errors?.password?.type === 'hasCapitalLetter' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
                         }
                         {
                             errors?.password?.type === 'hasSpecialCharacter' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
-                        }
+                        } */}
 
                     </div>
 
@@ -233,8 +234,20 @@ const Register = () => {
                             className='h-8 bg-blue-100 rounded-md outline-none placeholder:pl-2 placeholder:font-montserrat'
                             type="password"
                             placeholder="Confirm Password"
-                            {...register("confirmPassword", { min: 6 })} />
+                            {...register("confirmPassword",
+                                {
+                                    required: {
+                                        value: true,
+                                        message: 'Confirm Password is Required',
+
+                                    },
+                                    min: 6
+                                })} />
+                        {
+                            errors?.confirmPassword?.type === 'required' && <span className=' text-base font-medium text-red-600'>{errors?.confirmPassword?.message}</span>
+                        }
                     </div>
+
 
                     <div className='flex flex-col w-full max-w-sm mx-auto mb-4'>
                         <label
@@ -245,7 +258,17 @@ const Register = () => {
                             // onChange={handlePhotoChange}
                             type="file"
                             placeholder="Photo"
-                            {...register("photo")} />
+                            {...register("photo",
+                                {
+                                    required: {
+                                        value: true,
+                                        message: 'Photo is Required'
+                                    }
+                                }
+                            )} />
+                        {
+                            errors?.photo?.type === 'required' && <span className=' text-base font-medium text-red-600'>{errors?.photo?.message}</span>
+                        }
                     </div>
 
                     <input
