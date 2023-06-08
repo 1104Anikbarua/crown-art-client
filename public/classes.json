@@ -1,0 +1,66 @@
+[
+    {
+        "className": "Still Life",
+        "price": 100,
+        "image": "https://i.ibb.co/QK9VMy8/still-life.png",
+        "numOfStudents": 30,
+        "availableSeats": 10,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "Potraits",
+        "price": 100,
+        "image": "https://i.ibb.co/Pr4gV64/potrait.png",
+        "numOfStudents": 25,
+        "availableSeats": 0,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "LandScapes",
+        "price": 100,
+        "image": "https://i.ibb.co/9gchvnG/landscape.png",
+        "numOfStudents": 40,
+        "availableSeats": 10,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "Animals",
+        "price": 100,
+        "image": "https://i.ibb.co/2y3mPNc/animal.png",
+        "numOfStudents": 20,
+        "availableSeats": 10,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "Architecture",
+        "price": 100,
+        "image": "https://i.ibb.co/CBmQJm8/architect.png",
+        "numOfStudents": 35,
+        "availableSeats": 10,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "AbstractArt",
+        "price": 100,
+        "image": "https://i.ibb.co/dmYpMHJ/abstract-art.png",
+        "numOfStudents": 15,
+        "availableSeats": 10,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "Nature&Botanicals",
+        "price": 100,
+        "image": "https://i.ibb.co/zPmtYVZ/naturebotanicals.png",
+        "numOfStudents": 50,
+        "availableSeats": 10,
+        "instructorName": "Mr x"
+    },
+    {
+        "className": "Figure Drawing",
+        "price": 100,
+        "image": "https://i.ibb.co/zPmtYVZ/naturebotanicals.png",
+        "numOfStudents": 10,
+        "availableSeats": 0,
+        "instructorName": "Mr x"
+    }
+]
