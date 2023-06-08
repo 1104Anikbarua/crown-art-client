@@ -22,7 +22,7 @@ const UseInstructor = () => {
             return response.data;
         }
     })
-    console.log(isInstructor)
+    // console.log(isInstructor)
     return [isInstructor, isInstructorLoading];
 };
 

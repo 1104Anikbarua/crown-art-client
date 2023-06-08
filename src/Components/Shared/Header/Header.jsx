@@ -16,7 +16,7 @@ const Header = () => {
     const [click, setClick] = useState(false);
 
     const { user, logOutUser } = useContext(DrawingContext);
-    console.log(user)
+    // console.log(user)
 
     // const totalProduct = carts?.reduce((previous, current) => current.quantity + previous, 0)
     // console.log(totalProduct)

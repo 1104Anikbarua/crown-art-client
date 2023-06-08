@@ -22,7 +22,7 @@ const UseAdmin = () => {
             return response.data;
         }
     })
-    console.log(isAdmin)
+    // console.log(isAdmin)
     return [isAdmin, isAdminLoading];
 };
 
