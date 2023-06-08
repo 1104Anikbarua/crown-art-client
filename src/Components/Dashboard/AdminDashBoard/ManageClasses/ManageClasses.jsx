@@ -18,7 +18,7 @@ const ManageClasses = () => {
         queryFn: () => fetch(`http://localhost:5000/admin/classes`)
             .then(res => res.json())
     })
-    console.log(classes)
+    // console.log(classes)
 
     const navigate = useNavigate();
     const handleSendFeedback = (course) => {
@@ -148,7 +148,7 @@ const ManageClasses = () => {
                                     <label
                                         htmlFor="my_modal_6"
                                         onClick={() => handleSendFeedback(course)}
-                                        className="bg-orange-100 w-32 h-8 font-playfair text-base rounded-md flex items-center justify-center">
+                                        className="bg-orange-100 w-32 h-8 font-playfair text-base rounded-md flex items-center justify-center cursor-pointer">
                                         FeedBack
                                     </label>
                                 </td>

@@ -1,21 +1,34 @@
 import React from 'react';
 import { GiSplitCross } from 'react-icons/gi'
-const AdminFeedBack = ({ show }) => {
+import Swal from 'sweetalert2';
+const AdminFeedBack = ({ show, refetch }) => {
     const { _id } = show;
-    console.log(show)
+    // console.log(show)
     const handleGiveFeedback = (event) => {
         event.preventDefault();
         // console.log(event.target.text.value)
         const feedBack = event.target.text.value;
-        fetch(`http://localhost:5000/admin/feedbacks/:${_id}`, {
+        // console.log(feedBack)
+        fetch(`http://localhost:5000/admin/feedbacks/${_id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'Content-type': 'application/json'
             },
-            body: JSON.stringify(feedBack)
+            body: JSON.stringify({ feedBack })
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
+                if (data?.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: `Feedback Post For ${show.className}`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    event.target.reset();
+                }
             })
     }
 
@@ -33,7 +46,7 @@ const AdminFeedBack = ({ show }) => {
                         className='flex flex-col'
                     >
                         <textarea className='w-full outline-none bg-blue-100 rounded-md mb-5' name="text" id="" cols="50" rows="5"></textarea>
-                        <input className='bg-orange-100 font-playfair text-base h-7 rounded-md' type="submit" value="Submit" />
+                        <input className='bg-orange-100 font-playfair cursor-pointer text-base h-7 rounded-md' type="submit" value="Submit" />
 
                     </form>
 
