@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { HiOutlineTrash } from 'react-icons/hi';
 import { MdNavigateNext } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';

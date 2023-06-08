@@ -12,6 +12,8 @@ import MyPaymentPage from "../Dashboard/StudentDashboard/Pages/MyPaymentPage/MyP
 import RequireAuth from "../Shared/RequireAuth/RequireAuth";
 import ManageClasses from "../Dashboard/AdminDashBoard/ManageClasses/ManageClasses";
 import ManageUsers from "../Dashboard/AdminDashBoard/ManageUsers/ManageUsers";
+import AddClasses from "../Dashboard/InstructorDashboard/AddClasses/AddClasses";
+import MyClasses from "../Dashboard/InstructorDashboard/MyClasses/MyClasses";
 
 const router = createBrowserRouter([
     {
@@ -63,11 +65,11 @@ const router = createBrowserRouter([
             // instructor routes starts here 
             {
                 path: 'instructor/add',
-                element: <></>
+                element: <AddClasses></AddClasses>
             },
             {
                 path: 'instructor/classes',
-                element: <></>
+                element: <MyClasses></MyClasses>
             },
             // instructor routes ends here
 

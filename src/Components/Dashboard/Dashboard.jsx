@@ -3,10 +3,13 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { TfiWrite } from 'react-icons/tfi'
 import { MdAdsClick } from 'react-icons/md'
 import { AiOutlineHome, AiOutlinePayCircle } from 'react-icons/ai'
+import UseAdmin from '../Hook/UseAdmin';
+import UseInstructor from '../Hook/UseInstructor';
 
 const Dashboard = () => {
-    const isAdmin = true;
-    const isInstructor = false;
+    // const isAdmin = true;
+    const [isAdmin] = UseAdmin()
+    const [isInstructor] = UseInstructor()
 
     return (
         <div>
@@ -24,9 +27,8 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
 
 
-
                         {
-                            isInstructor &&
+                            isInstructor?.instructor &&
                             <>
                                 {/* instructor dashboard routes starts here */}
                                 <li>
@@ -48,48 +50,50 @@ const Dashboard = () => {
                         }
 
                         {
-                            isAdmin
-                                ?
-                                <>
-                                    {/* admin dashboard routes starts here */}
-                                    <li>
-                                        <NavLink to={'admin/classes/manage'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                            <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
-                                            Manage Classes
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to={'admin/classes/users'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                            <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
-                                            Manage Users
-                                        </NavLink>
-                                    </li>
-                                    {/* admin dashboard routes ends here  */}
-                                </>
-                                :
-                                <>
-                                    {/* student dashboard routes */}
-                                    <li>
-                                        <NavLink to={'classes/selected'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                            <MdAdsClick className='text-2xl mr-3'></MdAdsClick>
-                                            My Selected Classes
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to={'classes/enrolled'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                            <TfiWrite className='text-2xl mr-3'></TfiWrite>
-                                            My Enrolled Classes
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to={'classes/payments'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                            <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
-                                            My Payment Page
-                                        </NavLink>
-                                    </li>
-                                    {/* student dashboard routes ends here  */}
-                                </>
+                            isAdmin?.admin &&
+                            <>
+                                {/* admin dashboard routes starts here */}
+                                <li>
+                                    <NavLink to={'admin/classes/manage'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
+                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        Manage Classes
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'admin/classes/users'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
+                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        Manage Users
+                                    </NavLink>
+                                </li>
+                                {/* admin dashboard routes ends here  */}
+                            </>
+
                         }
+                        {isAdmin?.admin || isInstructor?.instructor ||
+                            <>
+                                {/* student dashboard routes */}
+                                <li>
+                                    <NavLink to={'classes/selected'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
+                                        <MdAdsClick className='text-2xl mr-3'></MdAdsClick>
+                                        My Selected Classes
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'classes/enrolled'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
+                                        <TfiWrite className='text-2xl mr-3'></TfiWrite>
+                                        My Enrolled Classes
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'classes/payments'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
+                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        My Payment Page
+                                    </NavLink>
+                                </li>
+                                {/* student dashboard routes ends here  */}
+                            </>
+                        }
+
 
                         <li>
                             <NavLink to={'/'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
