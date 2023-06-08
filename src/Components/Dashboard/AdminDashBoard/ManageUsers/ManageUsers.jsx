@@ -15,18 +15,18 @@ const ManageUsers = () => {
     })
     // console.log(students)
     const handleMakeInstructor = (id) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`http://localhost:5000/instructor/users/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: `${user?.name} is promoted as Instructor`,
+                        title: `User is promoted as Instructor`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -39,13 +39,13 @@ const ManageUsers = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: `${user?.name} is promoted as Admin`,
+                        title: `User is promoted as Admin`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -96,15 +96,17 @@ const ManageUsers = () => {
                                 <td className=' font-playfair text-base font-normal'>{student?.email}</td>
                                 <td className=''>
                                     <button
+                                        disabled={student?.role === 'instructor'}
                                         onClick={() => handleMakeInstructor(student?._id)}
-                                        className="bg-orange-100 w-full max-w-xs h-8 font-playfair text-base rounded-md">
+                                        className="bg-orange-100 w-full max-w-xs h-8 font-playfair text-base rounded-md disabled:bg-orange-100/20 disabled:cursor-not-allowed">
                                         Make Instructor
                                     </button>
                                 </td>
                                 <td className=''>
                                     <button
-                                        onClick={() => handleMakeAdmin(course._id)}
-                                        className="bg-orange-100 w-full max-w-xs h-8 font-playfair text-base rounded-md">
+                                        disabled={student?.role === 'admin'}
+                                        onClick={() => handleMakeAdmin(student?._id)}
+                                        className="bg-orange-100 w-full max-w-xs h-8 font-playfair text-base rounded-md disabled:bg-orange-100/20">
                                         Make Admin
                                     </button>
                                 </td>
