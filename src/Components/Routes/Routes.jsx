@@ -10,6 +10,8 @@ import MySelectedClass from "../Dashboard/StudentDashboard/Pages/MySelectedClass
 import MyEnrolledClass from "../Dashboard/StudentDashboard/Pages/MyEnrolledClass/MyEnrolledClass";
 import MyPaymentPage from "../Dashboard/StudentDashboard/Pages/MyPaymentPage/MyPaymentPage";
 import RequireAuth from "../Shared/RequireAuth/RequireAuth";
+import ManageClasses from "../Dashboard/AdminDashBoard/ManageClasses/ManageClasses";
+import ManageUsers from "../Dashboard/AdminDashBoard/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
     {
@@ -73,12 +75,12 @@ const router = createBrowserRouter([
             // admin routes starts here
             {
                 path: 'admin/classes/manage',
-                element: <></>
+                element: <ManageClasses></ManageClasses>
 
             },
             {
                 path: 'admin/classes/users',
-                element: <></>
+                element: <ManageUsers></ManageUsers>
             }
 
             // admin routes ends here 
