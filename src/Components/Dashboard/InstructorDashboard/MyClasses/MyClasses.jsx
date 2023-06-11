@@ -65,7 +65,7 @@ const MyClasses = () => {
                                 <td className=' font-playfair text-base font-normal'>${course?.price}</td>
                                 <td className=' font-playfair text-base font-normal'>{course?.availableSeats}</td>
                                 <td className=' font-playfair text-base font-normal'>{course?.status}</td>
-                                <td className=' font-playfair text-base font-normal'>{course?.students||0}</td>
+                                <td className=' font-playfair text-base font-normal'>{course?.enrolled || 0}</td>
                                 <td className=' font-playfair text-base font-normal'>{course?.feedback || 'No Feedback'}</td>
 
                                 <td className=''>
