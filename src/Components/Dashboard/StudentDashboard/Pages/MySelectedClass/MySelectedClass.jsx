@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { MdNavigateNext } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DrawingContext } from '../../../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { HiOutlineTrash } from 'react-icons/hi';
@@ -16,8 +16,9 @@ const MySelectedClass = () => {
             .then(res => res.json())
     })
     // console.log(classes)
+    const navigate = useNavigate();
     const handlePayFees = (id) => {
-
+        navigate(`/dashboard/classes/payments/${id}`)
     }
     const handleRemoveClass = (id) => {
         // console.log(id)
@@ -51,9 +52,11 @@ const MySelectedClass = () => {
         })
     }
 
+    const unpaid = classes?.filter((paid) => paid?.paid !== true)
+    // console.log(unpaid)
     return (
         <div className='w-full max-w-7xl mx-auto'>
-            <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Popular Instructors</h1>
+            <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>My Selected Classes</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>
                     <Link to={'/'}>
@@ -87,7 +90,7 @@ const MySelectedClass = () => {
                     {/* row 1 */}
                     <tbody>
                         {
-                            classes?.map((course, index) => <tr
+                            unpaid?.map((course, index) => <tr
                                 key={course._id}
                                 className='text-center'>
                                 <td className=' font-playfair text-base font-normal'>{index + 1}</td>

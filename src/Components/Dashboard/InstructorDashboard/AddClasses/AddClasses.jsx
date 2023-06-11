@@ -19,7 +19,7 @@ const AddClasses = () => {
         const status = 'pending';
         const className = data?.classname;
         const availableSeats = parseInt(data?.seats)
-        const price = data?.price
+        const price = parseInt(data?.price)
         const formData = new FormData();
         formData.append('image', data?.photo[0])
 

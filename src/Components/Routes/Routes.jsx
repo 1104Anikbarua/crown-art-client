@@ -14,12 +14,16 @@ import ManageClasses from "../Dashboard/AdminDashBoard/ManageClasses/ManageClass
 import ManageUsers from "../Dashboard/AdminDashBoard/ManageUsers/ManageUsers";
 import AddClasses from "../Dashboard/InstructorDashboard/AddClasses/AddClasses";
 import MyClasses from "../Dashboard/InstructorDashboard/MyClasses/MyClasses";
-import AdminFeedBack from "../Dashboard/AdminDashBoard/AdminFeedBack/AdminFeedBack";
+
+import RequireAdmin from "../Shared/RequireAdmin/RequireAdmin";
+import RequireInstructor from "../Shared/RequireInstructor/RequireInstructor";
+import NotFound from "../Shared/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <NotFound></NotFound>,
         children: [
             {
                 path: '/',
@@ -59,18 +63,22 @@ const router = createBrowserRouter([
                 element: <MyEnrolledClass></MyEnrolledClass>
             },
             {
-                path: 'classes/payments',
+                path: 'classes/payments/:id',
                 element: <MyPaymentPage></MyPaymentPage>
             },
 
             // instructor routes starts here 
             {
                 path: 'instructor/add',
-                element: <AddClasses></AddClasses>
+                element: <RequireInstructor>
+                    <AddClasses></AddClasses>
+                </RequireInstructor>
             },
             {
                 path: 'instructor/classes',
-                element: <MyClasses></MyClasses>
+                element: <RequireInstructor>
+                    <MyClasses></MyClasses>
+                </RequireInstructor>
             },
             // instructor routes ends here
 
@@ -78,12 +86,16 @@ const router = createBrowserRouter([
             // admin routes starts here
             {
                 path: 'admin/classes/manage',
-                element: <ManageClasses></ManageClasses>
+                element: <RequireAdmin>
+                    <ManageClasses></ManageClasses>
+                </RequireAdmin>
 
             },
             {
                 path: 'admin/classes/users',
-                element: <ManageUsers></ManageUsers>
+                element: <RequireAdmin>
+                    <ManageUsers></ManageUsers>
+                </RequireAdmin>
             }
             // {
             //     path: 'feedback/:id',

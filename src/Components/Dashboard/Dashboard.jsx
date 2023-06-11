@@ -26,7 +26,6 @@ const Dashboard = () => {
                     <ul className="menu p-4 w-80 h-full bg-zinc-100">
                         {/* Sidebar content here */}
 
-
                         {
                             isInstructor?.instructor &&
                             <>
@@ -45,7 +44,6 @@ const Dashboard = () => {
                                 </li>
                                 {/* instructor dashboard routes ends here  */}
                             </>
-
 
                         }
 
@@ -84,16 +82,15 @@ const Dashboard = () => {
                                         My Enrolled Classes
                                     </NavLink>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <NavLink to={'classes/payments'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
                                         <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
                                         My Payment Page
                                     </NavLink>
-                                </li>
+                                </li> */}
                                 {/* student dashboard routes ends here  */}
                             </>
                         }
-
 
                         <li>
                             <NavLink to={'/'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>

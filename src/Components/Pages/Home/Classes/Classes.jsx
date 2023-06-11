@@ -5,29 +5,31 @@ import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import LoadingSpinner from '../../../Shared/LoadingSpinner/LoadingSpinner';
+import UseInstructor from '../../../Hook/UseInstructor';
+import UseAdmin from '../../../Hook/UseAdmin';
 
 const Classes = () => {
     const [courses, setCourses] = useState([])
     const [loading, setLoading] = useState(true)
     const { user } = useContext(DrawingContext)
-    const isInstructor = false;
-    const isAdmin = false;
+    const [isInstructor] = UseInstructor();
+    const [isAdmin] = UseAdmin();
+
+    // console.log(isAdmin)
 
     useEffect(() => {
         setLoading(true)
         axios.get('http://localhost:5000/classes')
             .then(response => {
-                // console.log(response)
+                // console.log(response.data)
                 setCourses(response.data);
                 setLoading(false)
             })
-        // fetch('classes.json')
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         setCourses(data)
-        //         setLoading(false)
-        //     })
     }, []);
+
+    // console.log(courses)
+    const approved = courses.filter((approve) => approve.status === 'approved')
+    // console.log(approved)
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -45,7 +47,7 @@ const Classes = () => {
         }
     }
     const handelSelectCourse = (course) => {
-        // console.log('Hello user', id);
+        console.log('Hello user', course);
         // navigate(`/classes/selected`);
         const courseInfo = {
             className: course?.className,
@@ -54,7 +56,8 @@ const Classes = () => {
             numOfStudents: course?.numOfStudents,
             availableSeats: course?.availableSeats,
             instructorName: course?.instructorName,
-            email: user?.email
+            email: user?.email,
+            courseId: course._id,
         }
         // console.log(courseInfo)
         axios.post('http://localhost:5000/classes', courseInfo)
@@ -101,7 +104,7 @@ const Classes = () => {
                         <div>
                             <div className='w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                                 {
-                                    courses?.map((classItem) => <div
+                                    approved?.map((classItem) => <div
                                         key={classItem?._id}
                                         className={`w-full max-w-[356px] h-[420px] mx-auto rounded text-center ${classItem?.availableSeats === 0 ? 'bg-red-600' : 'bg-orange-300'}`}
                                     >
@@ -109,11 +112,11 @@ const Classes = () => {
                                         <img className='w-full max-w-[300px] h-48 mx-auto my-5 rounded' src={classItem?.image} alt="classname image" />
                                         <h3 className='font-playfair font-bold text-2xl text-zinc-100'>Class Name:{classItem?.className}</h3>
                                         <p className='font-playfair font-semibold text-xl text-zinc-100'>Teacher:{classItem?.instructorName}</p>
-                                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.availableSeats}</p>
+                                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Available Seats:{classItem?.availableSeats}</p>
                                         <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.price}</p>
 
                                         <button
-                                            disabled={isAdmin === true || isInstructor === true}
+                                            disabled={isAdmin?.admin === true || isInstructor?.instructor === true}
                                             className={
                                                 ` bg-white w-full max-w-[300px] h-8 rounded-md text-base font-playfair mt-5 ${classItem?.availableSeats === 0 ? 'cursor-not-allowed bg-opacity-50' : 'cursor-pointer'} disabled:cursor-not-allowed`
                                             }
