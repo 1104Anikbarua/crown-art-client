@@ -18,6 +18,7 @@ import MyClasses from "../Dashboard/InstructorDashboard/MyClasses/MyClasses";
 import RequireAdmin from "../Shared/RequireAdmin/RequireAdmin";
 import RequireInstructor from "../Shared/RequireInstructor/RequireInstructor";
 import NotFound from "../Shared/NotFound/NotFound";
+import MyPaymentHistory from "../Dashboard/StudentDashboard/Pages/MyPaymentHistory/MyPaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path: 'classes/payments/:id',
                 element: <MyPaymentPage></MyPaymentPage>
+            },
+            {
+                path: 'payments',
+                element: <MyPaymentHistory></MyPaymentHistory>
             },
 
             // instructor routes starts here 

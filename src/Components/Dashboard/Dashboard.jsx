@@ -82,6 +82,12 @@ const Dashboard = () => {
                                         My Enrolled Classes
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to={'payments'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
+                                        <TfiWrite className='text-2xl mr-3'></TfiWrite>
+                                        My Payment History
+                                    </NavLink>
+                                </li>
                                 {/* <li>
                                     <NavLink to={'classes/payments'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
                                         <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
