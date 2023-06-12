@@ -20,7 +20,7 @@ const MyPaymentPage = () => {
     const { isLoading, refetch, data: classes } = useQuery({
         // enabled: !!user?.email,
         queryKey: ['payments', id],
-        queryFn: () => fetch(`http://localhost:5000/selected/classes/${id}`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/selected/classes/${id}`)
             .then(res => res.json())
     })
     // console.log(classes)

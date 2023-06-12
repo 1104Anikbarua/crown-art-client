@@ -4,7 +4,7 @@ import banner from '../../../../assets/banner/banner.png'
 const HomeBanner = () => {
     return (
         <div className='relative flex flex-col items-center justify-center mt-20 h-screen w-full'>
-            <div className='absolute inset-0 w-full lg:bg-cover bg-right lg:bg-center filter contrast-75'
+            <div className='absolute inset-0 w-full lg:bg-cover bg-right lg:bg-center filter contrast-75 bg-no-repeat'
                 style={{ backgroundImage: `url(${banner})` }}>
             </div>
             <div className='relative text-center md:text-start w-full max-w-7xl mx-auto'>

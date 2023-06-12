@@ -26,7 +26,7 @@ const PopularClassesSection = () => {
                 {
                     topClasses?.map((classItem, index) => <div
                         key={index}
-                        className='w-full max-w-[356px] h-[459px] mx-auto text-center'
+                        className='w-full max-w-[356px] h-[300px] mx-auto text-center'
                     >
 
                         <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={classItem?.image} alt="classname image" />

@@ -19,7 +19,7 @@ const Classes = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://localhost:5000/classes')
+        axios.get('https://batch-7-assignment-12-server.vercel.app/classes')
             .then(response => {
                 // console.log(response.data)
                 setCourses(response.data);
@@ -60,7 +60,7 @@ const Classes = () => {
             courseId: course._id,
         }
         // console.log(courseInfo)
-        axios.post('http://localhost:5000/classes', courseInfo)
+        axios.post('https://batch-7-assignment-12-server.vercel.app/classes', courseInfo)
             .then(response => {
                 console.log(response)
                 if (response.data.insertedId) {

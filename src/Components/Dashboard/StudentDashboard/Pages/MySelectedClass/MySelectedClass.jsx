@@ -12,7 +12,7 @@ const MySelectedClass = () => {
     const { isLoading, refetch, data: classes } = useQuery({
         enabled: !!user?.email,
         queryKey: ['classes', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/selected/classes?email=${user?.email}`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/selected/classes?email=${user?.email}`)
             .then(res => res.json())
     })
     // console.log(classes)
@@ -33,7 +33,7 @@ const MySelectedClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/classes/${id}`, {
+                fetch(`https://batch-7-assignment-12-server.vercel.app/classes/${id}`, {
                     method: "DELETE",
                 })
                     .then((res => res.json()))

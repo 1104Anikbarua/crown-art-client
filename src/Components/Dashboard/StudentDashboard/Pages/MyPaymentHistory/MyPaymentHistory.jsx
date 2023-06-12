@@ -9,7 +9,7 @@ const MyPaymentHistory = () => {
     const { isLoading, refetch, data: payments } = useQuery({
         enabled: !!user?.email,
         queryKey: ['payments', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/payments?email=${user?.email}`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/payments?email=${user?.email}`)
             .then(res => res.json())
     })
     console.log(payments)

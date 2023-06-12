@@ -54,7 +54,7 @@ const Header = () => {
                         alt="website nav logo" />
                 </Link>
                 <ul
-                    className={`flex items-center flex-col absolute duration-700 w-full shadow-sm justify-center md:flex-row md:justify-end md:static md:shadow-none ${show ? 'top-[82px]' : '-top-96'}`}>
+                    className={`flex items-center flex-col absolute duration-700 w-full shadow-sm justify-center md:flex-row md:justify-end md:static md:shadow-none  ${show ? 'top-[82px] bg-[#7d7975]' : '-top-96'}`}>
                     <li className="md:mr-5">
 
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'/'}>Home</NavLink>
