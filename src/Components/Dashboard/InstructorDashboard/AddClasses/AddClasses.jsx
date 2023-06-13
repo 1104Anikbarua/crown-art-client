@@ -15,7 +15,7 @@ const AddClasses = () => {
     const instructorName = user?.displayName;
 
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
         const status = 'pending';
         const className = data?.classname;
         const availableSeats = parseInt(data?.seats)
@@ -30,9 +30,9 @@ const AddClasses = () => {
             .then(res => res.json())
             .then(data => {
                 if (data?.status === 200) {
-                    const classInfo = { status, className, email, instructorName, availableSeats, price, image: data?.data?.url }
+                    const classInfo = { status, className, email, instructorName, availableSeats, price, image: data?.data?.url, photo: user?.photoURL }
                     // console.log(classInfo)
-                    fetch('https://batch-7-assignment-12-server.vercel.app/instructor', {
+                    fetch('http://localhost:5000/instructor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

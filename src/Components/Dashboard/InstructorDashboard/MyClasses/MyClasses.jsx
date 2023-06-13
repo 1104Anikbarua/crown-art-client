@@ -3,16 +3,39 @@ import React, { useContext } from 'react';
 import { MdNavigateNext } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const MyClasses = () => {
     const { user } = useContext(DrawingContext);
+    // console.log(user)
     const { isLoading, refetch, data: classes } = useQuery({
         enabled: !!user?.email,
         queryKey: ['classes', user?.email],
-        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/instructor/classes?email=${user?.email}`)
+        queryFn: () => fetch(`http://localhost:5000/instructor/classes?email=${user?.email}`)
             .then(res => res.json())
     })
-    console.log(classes)
+    // console.log(classes)
+
+    const handlePayFees = (id) => {
+        const userInfo = { photo: user?.photoURL }
+        fetch(`http://localhost:5000/instructor/${id}`, {
+            method: 'PATCH',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: `Photo Set`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
     return (
         <div className='w-full max-w-7xl mx-auto'>
             <h1 className='text-center font-playfair font-extrabold text-4xl hover:text-orange-100'>My Classes</h1>

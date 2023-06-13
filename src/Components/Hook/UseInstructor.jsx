@@ -11,7 +11,7 @@ const UseInstructor = () => {
         queryKey: ['instructor', user?.email], queryFn: async () => {
 
             const response = await axios.get(
-                `https://batch-7-assignment-12-server.vercel.app/users/instructor?email=${user?.email}`,
+                `http://localhost:5000/users/instructor?email=${user?.email}`,
                 {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access_token')}`,

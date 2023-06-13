@@ -17,7 +17,7 @@ const CheckoutForm = ({ classes }) => {
 
     useEffect(() => {
         if (price) {
-            fetch('https://batch-7-assignment-12-server.vercel.app/create-payment-intent', {
+            fetch('http://localhost:5000/create-payment-intent', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -100,7 +100,7 @@ const CheckoutForm = ({ classes }) => {
                 mainCourseId: classes?.courseId,
 
             }
-            fetch(`https://batch-7-assignment-12-server.vercel.app/classes/payment/${classes?._id}`, {
+            fetch(`http://localhost:5000/classes/payment/${classes?._id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -113,7 +113,7 @@ const CheckoutForm = ({ classes }) => {
 
                     console.log(data)
                     if (data.modifiedCount) {
-                        fetch(`https://batch-7-assignment-12-server.vercel.app/payment/${classes?._id}`, {
+                        fetch(`http://localhost:5000/payment/${classes?._id}`, {
                             method: "PATCH",
                             headers: {
                                 'content-type': 'application/json'

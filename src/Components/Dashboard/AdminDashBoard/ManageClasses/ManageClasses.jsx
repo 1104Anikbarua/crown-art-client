@@ -15,7 +15,7 @@ const ManageClasses = () => {
     const { isLoading, refetch, data: classes } = useQuery({
 
         queryKey: ['allClasses',],
-        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/admin/classes`)
+        queryFn: () => fetch(`http://localhost:5000/admin/classes`)
             .then(res => res.json())
     })
     // console.log(classes)
@@ -25,7 +25,7 @@ const ManageClasses = () => {
         setShow(course)
     }
     const handleDeniedCourse = (id) => {
-        fetch(`https://batch-7-assignment-12-server.vercel.app/admin/denies/${id}`, {
+        fetch(`http://localhost:5000/admin/denies/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -43,7 +43,7 @@ const ManageClasses = () => {
             })
     }
     const handleApproveCourse = (id) => {
-        fetch(`https://batch-7-assignment-12-server.vercel.app/admin/approves/${id}`, {
+        fetch(`http://localhost:5000/admin/approves/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

@@ -9,7 +9,7 @@ const AdminFeedBack = ({ show, refetch }) => {
         // console.log(event.target.text.value)
         const feedBack = event.target.text.value;
         // console.log(feedBack)
-        fetch(`https://batch-7-assignment-12-server.vercel.app/admin/feedbacks/${_id}`, {
+        fetch(`http://localhost:5000/admin/feedbacks/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json'

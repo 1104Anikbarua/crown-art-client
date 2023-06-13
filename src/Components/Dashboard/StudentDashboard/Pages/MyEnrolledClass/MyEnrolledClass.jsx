@@ -11,7 +11,7 @@ const MyEnrolledClass = () => {
     const { isLoading, refetch, data: classes } = useQuery({
         enabled: !!user?.email,
         queryKey: ['enrolled', user?.email],
-        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/enrolled?email=${user?.email}`)
+        queryFn: () => fetch(`http://localhost:5000/enrolled?email=${user?.email}`)
             .then(res => res.json())
     })
     console.log(classes)
