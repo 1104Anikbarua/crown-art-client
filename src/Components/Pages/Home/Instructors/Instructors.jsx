@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdNavigateNext } from 'react-icons/md'
+import { useQuery } from '@tanstack/react-query';
+import LoadingSpinner from '../../../Shared/LoadingSpinner/LoadingSpinner';
 const Instructors = () => {
     // const classes = [
     //     { className: 'Still Life', teacherName: 'Mr x', image: 'https://i.ibb.co/QK9VMy8/still-life.png', numOfStudents: 30 },
@@ -12,31 +14,47 @@ const Instructors = () => {
     //     { className: 'Nature&Botanicals', teacherName: 'Mr x', image: 'https://i.ibb.co/zPmtYVZ/naturebotanicals.png', numOfStudents: 50 },
     //     { className: 'Figure Drawing', teacherName: 'Mr x', numOfStudents: 10 },
     // ];
-
+    const { isLoading, refetch, data: instructors } = useQuery({
+        queryKey: ['classes'],
+        queryFn: () => fetch(`http://localhost:5000/classes`)
+            .then(res => res.json())
+    })
+    console.log(isLoading, instructors)
 
     return (
-        <div className='w-full max-w-7xl mx-auto mt-20'>
-            <div className='flex items-center'>
-                <p className='text-orange-100 font-montserrat text-base font-medium'>
-                    <Link to={'/'}>
-                        Home
-                    </Link>
-                </p>
-                <MdNavigateNext className='mx-5'></MdNavigateNext>
-                <p className='text-black font-montserrat text-base font-medium'>Instructors</p>
-            </div>
-            <div>
-                <div
-                    className='w-full max-w-[356px] h-[459px] mx-auto text-center'
-                >
+        <>
+            {
+                isLoading
+                    ?
+                    <LoadingSpinner></LoadingSpinner>
+                    :
+                    <div className='w-full max-w-7xl mx-auto my-20'>
+                        <div className='flex items-center my-5'>
+                            <p className='text-orange-100 font-montserrat text-base font-medium'>
+                                <Link to={'/'}>
+                                    Home
+                                </Link>
+                            </p>
+                            <MdNavigateNext className='mx-5'></MdNavigateNext>
+                            <p className='text-black font-montserrat text-base font-medium'>Instructors</p>
+                        </div>
+                        <div className='w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                            {
+                                instructors?.map((teacher) => <div
+                                    key={teacher._id}
+                                    className='w-full max-w-[356px] h-[459px] mx-auto'
+                                >
 
-                    <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={"classItem?.image"} alt="classname image" />
-                    <h3 className='font-playfair font-bold text-2xl text-zinc-100'>{'classItem?.className'}</h3>
-                    <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{'classItem?.numOfStudents'}</p>
+                                    <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={teacher?.photo} alt="classname image" />
+                                    <h3 className='font-playfair font-bold text-2xl text-zinc-100'>{teacher?.instructorName}</h3>
+                                    <p className='font-playfair font-semibold text-xl text-zinc-100'>Email:{teacher?.email}</p>
 
-                </div>
-            </div>
-        </div>
+                                </div>)
+                            }
+                        </div>
+                    </div>
+            }
+        </>
     );
 };
 
