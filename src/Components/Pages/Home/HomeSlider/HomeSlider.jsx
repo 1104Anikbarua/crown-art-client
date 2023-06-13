@@ -50,7 +50,7 @@ const HomeSlider = () => {
                     <div className='absolute inset-0 w-full bg-cover bg-center filter contrast-75'
                         style={{ backgroundImage: `url(${bannertwo})` }}>
                     </div>
-                    <Zoom duration={3000} delay={3000}>
+                    <Zoom duration={3000} delay={5000}>
 
                         <div className='relative text-center w-full max-w-7xl mx-auto'>
 
@@ -66,7 +66,7 @@ const HomeSlider = () => {
                     <div className='absolute inset-0 w-full bg-cover bg-center filter contrast-75'
                         style={{ backgroundImage: `url(${bannerthree})` }}>
                     </div>
-                    <Zoom duration={3000} delay={4000}>
+                    <Zoom duration={3000} delay={7000}>
                         <div className='relative text-center w-full max-w-7xl mx-auto'>
 
                             <h1

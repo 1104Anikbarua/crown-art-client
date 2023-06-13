@@ -15,12 +15,23 @@ const Instructors = () => {
     //     { className: 'Figure Drawing', teacherName: 'Mr x', numOfStudents: 10 },
     // ];
     const { isLoading, refetch, data: instructors } = useQuery({
-        queryKey: ['classes'],
+        queryKey: ['instructors'],
         queryFn: () => fetch(`http://localhost:5000/classes`)
             .then(res => res.json())
     })
     console.log(isLoading, instructors)
+    const uniqueEmailsSet = new Set();
 
+    const uniqueEmailArray = instructors?.filter((obj) => {
+        const { email } = obj;
+        // console.log(obj)
+        if (!uniqueEmailsSet.has(email)) {
+            uniqueEmailsSet.add(email);
+            return true;
+        }
+        return false;
+    });
+    // console.log(uniqueEmailArray)
     return (
         <>
             {
@@ -40,12 +51,12 @@ const Instructors = () => {
                         </div>
                         <div className='w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                             {
-                                instructors?.map((teacher) => <div
+                                uniqueEmailArray?.map((teacher) => <div
                                     key={teacher._id}
-                                    className='w-full max-w-[356px] h-[459px] mx-auto'
+                                    className='w-full max-w-[356px] h-[459px]'
                                 >
 
-                                    <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={teacher?.photo} alt="classname image" />
+                                    <img className='w-full max-w-[300px] h-48 mb-5' src={teacher?.photo} alt="classname image" />
                                     <h3 className='font-playfair font-bold text-2xl text-zinc-100'>{teacher?.instructorName}</h3>
                                     <p className='font-playfair font-semibold text-xl text-zinc-100'>Email:{teacher?.email}</p>
 

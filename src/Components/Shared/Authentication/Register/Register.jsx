@@ -54,7 +54,8 @@ const Register = () => {
                                     setRefresh(new Date().getTime())
                                     const userInfo = {
                                         name: name,
-                                        email: email
+                                        email: email,
+                                        image: data?.data?.url
                                     }
                                     fetch('http://localhost:5000/users', {
                                         method: 'POST',
