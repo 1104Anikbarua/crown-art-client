@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { TfiWrite } from 'react-icons/tfi'
-import { MdAdsClick } from 'react-icons/md'
+import { MdAdsClick, MdLibraryAdd, MdOutlineManageAccounts, MdPayment } from 'react-icons/md'
 import { AiOutlineHome, AiOutlinePayCircle } from 'react-icons/ai'
 import UseAdmin from '../Hook/UseAdmin';
 import UseInstructor from '../Hook/UseInstructor';
+import { SiGoogleclassroom } from 'react-icons/si'
 
 const Dashboard = () => {
     // const isAdmin = true;
@@ -32,13 +33,15 @@ const Dashboard = () => {
                                 {/* instructor dashboard routes starts here */}
                                 <li>
                                     <NavLink to={'instructor/add'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        {/* <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle> */}
+                                        <MdLibraryAdd className='mr-3 text-2xl'></MdLibraryAdd>
                                         Add A Class
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={'instructor/classes'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        {/* <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle> */}
+                                        <SiGoogleclassroom className='mr-3 text-2xl'></SiGoogleclassroom>
                                         My Classes
                                     </NavLink>
                                 </li>
@@ -53,13 +56,15 @@ const Dashboard = () => {
                                 {/* admin dashboard routes starts here */}
                                 <li>
                                     <NavLink to={'admin/classes/manage'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        {/* <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle> */}
+                                        <SiGoogleclassroom className='mr-3 text-2xl'></SiGoogleclassroom>
                                         Manage Classes
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={'admin/classes/users'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                        <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle>
+                                        {/* <AiOutlinePayCircle className='mr-3 text-2xl'></AiOutlinePayCircle> */}
+                                        <MdOutlineManageAccounts className='mr-3 text-2xl'></MdOutlineManageAccounts>
                                         Manage Users
                                     </NavLink>
                                 </li>
@@ -84,7 +89,8 @@ const Dashboard = () => {
                                 </li>
                                 <li>
                                     <NavLink to={'payments'} className={({ isActive }) => isActive ? 'dashboard-true' : 'dashboard-false'}>
-                                        <TfiWrite className='text-2xl mr-3'></TfiWrite>
+                                        {/* <TfiWrite className='text-2xl mr-3'></TfiWrite> */}
+                                        <MdPayment className='text-2xl mr-3'></MdPayment>
                                         My Payment History
                                     </NavLink>
                                 </li>
