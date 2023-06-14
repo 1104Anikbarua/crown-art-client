@@ -9,6 +9,7 @@ import phone from '../../../assets/icon/smartphone.png'
 import message from '../../../assets/icon/text.png'
 import location from '../../../assets/icon/placeholder.png'
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo/logo.png'
 const Footer = () => {
     const year = new Date().getFullYear()
     return (
@@ -21,8 +22,8 @@ const Footer = () => {
                         <h3
                             className='font-roboto font-bold text-xl mb-5'>About us</h3>
                         <ul className="text-sm mb-5">
-                            {/* <img
-                                    className='w-12 lg:w-14 h-12 lg:h-14' src={logo} alt="" /> */}
+                            <img
+                                className='w-12 lg:w-14 h-12 lg:h-14' src={logo} alt="" />
                             <p
                                 className='text-base font-medium'>
 
