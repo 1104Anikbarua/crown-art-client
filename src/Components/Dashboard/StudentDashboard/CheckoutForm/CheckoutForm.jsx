@@ -11,7 +11,7 @@ const CheckoutForm = ({ classes }) => {
     const [cardDetail, setCardDetail] = useState('');
     const { user } = useContext(DrawingContext)
     // console.log(user)
-    console.log(classes)
+    // console.log(classes)
 
     const { price } = classes || {};
 
@@ -26,7 +26,7 @@ const CheckoutForm = ({ classes }) => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     if (data.clientSecret) {
                         setClientSecret(data.clientSecret)
                     }
@@ -111,7 +111,7 @@ const CheckoutForm = ({ classes }) => {
                 .then(response => response.json())
                 .then(data => {
 
-                    console.log(data)
+                    // console.log(data)
                     if (data.modifiedCount) {
                         fetch(`https://batch-7-assignment-12-server.vercel.app/payment/${classes?._id}`, {
                             method: "PATCH",

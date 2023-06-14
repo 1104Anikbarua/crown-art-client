@@ -23,7 +23,7 @@ const Footer = () => {
                             className='font-roboto font-bold text-xl mb-5'>About us</h3>
                         <ul className="text-sm mb-5">
                             <img
-                                className='w-12 lg:w-14 h-12 lg:h-14' src={logo} alt="" />
+                                className='w-24 lg:w-28 h-12 lg:h-14' src={logo} alt="" />
                             <p
                                 className='text-base font-medium'>
 

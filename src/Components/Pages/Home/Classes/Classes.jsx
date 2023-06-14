@@ -48,7 +48,7 @@ const Classes = () => {
         }
     }
     const handelSelectCourse = (course) => {
-        console.log('Hello user', course);
+        // console.log('Hello user', course);
         // navigate(`/classes/selected`);
         const courseInfo = {
             className: course?.className,
@@ -63,7 +63,7 @@ const Classes = () => {
         // console.log(courseInfo)
         axios.post('https://batch-7-assignment-12-server.vercel.app/classes', courseInfo)
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 if (response.data.insertedId) {
                     Swal.fire({
                         position: 'center',
