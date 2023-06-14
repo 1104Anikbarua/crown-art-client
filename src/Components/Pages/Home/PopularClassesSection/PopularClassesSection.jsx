@@ -1,19 +1,27 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const PopularClassesSection = () => {
 
-    const classes = [
-        { className: 'Still Life', image: 'https://i.ibb.co/QK9VMy8/still-life.png', numOfStudents: 30 },
-        { className: 'Potraits', image: 'https://i.ibb.co/Pr4gV64/potrait.png', numOfStudents: 25 },
-        { className: 'LandScapes', image: 'https://i.ibb.co/9gchvnG/landscape.png', numOfStudents: 40 },
-        { className: 'Animals', image: 'https://i.ibb.co/2y3mPNc/animal.png', numOfStudents: 20 },
-        { className: 'Architecture', image: 'https://i.ibb.co/CBmQJm8/architect.png', numOfStudents: 35 },
-        { className: 'AbstractArt', image: 'https://i.ibb.co/dmYpMHJ/abstract-art.png', numOfStudents: 15 },
-        { className: 'Nature&Botanicals', image: 'https://i.ibb.co/zPmtYVZ/naturebotanicals.png', numOfStudents: 50 },
-        { className: 'Figure Drawing', numOfStudents: 10 },
-    ];
-    classes.sort((a, b) => b.numOfStudents - a.numOfStudents);
-    const topClasses = classes.slice(0, 6);
+    // const classes = [
+    //     { className: 'Still Life', image: 'https://i.ibb.co/QK9VMy8/still-life.png', numOfStudents: 30 },
+    //     { className: 'Potraits', image: 'https://i.ibb.co/Pr4gV64/potrait.png', numOfStudents: 25 },
+    //     { className: 'LandScapes', image: 'https://i.ibb.co/9gchvnG/landscape.png', numOfStudents: 40 },
+    //     { className: 'Animals', image: 'https://i.ibb.co/2y3mPNc/animal.png', numOfStudents: 20 },
+    //     { className: 'Architecture', image: 'https://i.ibb.co/CBmQJm8/architect.png', numOfStudents: 35 },
+    //     { className: 'AbstractArt', image: 'https://i.ibb.co/dmYpMHJ/abstract-art.png', numOfStudents: 15 },
+    //     { className: 'Nature&Botanicals', image: 'https://i.ibb.co/zPmtYVZ/naturebotanicals.png', numOfStudents: 50 },
+    //     { className: 'Figure Drawing', numOfStudents: 10 },
+    // ];
+    const { isLoading, refetch, data: classes } = useQuery({
+        queryKey: ['popular-classes'],
+        queryFn: () => fetch(`http://localhost:5000/classes/popular`)
+            .then(res => res.json())
+    })
+    console.log(classes)
+    const enrolledStudent = classes?.filter((student) => student.enrolled)
+    enrolledStudent?.sort((a, b) => b.enrolled - a.enrolled);
+    const topClasses = enrolledStudent?.slice(0, 6);
     // topClasses.map((classItem) => {
     //     return <div>{classItem.className}</div>;
     // });
@@ -31,7 +39,7 @@ const PopularClassesSection = () => {
 
                         <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={classItem?.image} alt="classname image" />
                         <h3 className='font-playfair font-bold text-2xl text-zinc-100'>{classItem?.className}</h3>
-                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.numOfStudents}</p>
+                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.enrolled}</p>
 
                     </div>
                     )

@@ -15,7 +15,7 @@ const HomeBanner = () => {
                     <p
                         className='text-2xl lg:text-5xl font-semibold md:text-left text-center font-montserrat text-white w-full max-w-2xl lg:leading-[50px] mb-5'>Traditionally Passed From One Generation to The Next</p>
                     <button
-                        className='w-40 rounded-md h-10 mt-5 font-bold text-sm bg-white/90 border border-gray-300'>More About Us</button>
+                        className='w-40 rounded-md h-10 mt-5 font-bold text-sm bg-orange-100 font-montserrat'>More About Us</button>
                 </div>
             </Bounce>
 

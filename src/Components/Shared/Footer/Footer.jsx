@@ -14,7 +14,7 @@ const Footer = () => {
     return (
         // <footer className='bg-[#7d7975] bg-opacity-90
         //     w-full md:py-16 h-60 mx-auto flex items-center justify-between md:flex-row flex-col px-4'>
-        <footer className="bg-[#7d7975] bg-opacity-90 shadow-inner py-8 px-5 lg:px-20 mt-32">
+        <footer className="bg-[#7d7975] bg-opacity-90 shadow-inner py-8 px-5 lg:px-20 mt-32 text-white">
             <div className="max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div className="p-4">
