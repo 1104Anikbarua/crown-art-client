@@ -83,11 +83,11 @@ const Instructors = () => {
                         <div className='w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                             {
                                 uniqueInsturctor?.map((teacher, index) => <Fade
+                                    key={teacher._id}
                                     duration={index * 100}
                                     delay={index * 2000}>
                                     <div
-                                        key={teacher._id}
-                                        className='w-full max-w-[356px] h-[330px] mx-auto bg-orange-100 py-6'
+                                        className='w-full max-w-[356px] h-[330px] mx-auto bg-orange-100 py-6 rounded'
                                     >
 
                                         <img className='w-full max-w-[300px] h-48 mb-5 mx-auto' src={teacher?.image} alt="classname image" />

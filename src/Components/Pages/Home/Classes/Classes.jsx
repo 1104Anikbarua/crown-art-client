@@ -106,19 +106,19 @@ const Classes = () => {
                                 {
                                     approved?.map((classItem) => <div
                                         key={classItem?._id}
-                                        className={`w-full max-w-[356px] h-[420px] mx-auto rounded text-center ${classItem?.availableSeats === 0 ? 'bg-red-600' : 'bg-orange-300'}`}
+                                        className={`w-full max-w-[356px] h-[450px] mx-auto rounded text-center relative ${classItem?.availableSeats === 0 ? 'bg-red-600' : 'bg-orange-300'}`}
                                     >
 
                                         <img className='w-full max-w-[300px] h-48 mx-auto my-5 rounded' src={classItem?.image} alt="classname image" />
                                         <h3 className='font-playfair font-bold text-2xl text-zinc-100'>Class Name:{classItem?.className}</h3>
                                         <p className='font-playfair font-semibold text-xl text-zinc-100'>Teacher:{classItem?.instructorName}</p>
                                         <p className='font-playfair font-semibold text-xl text-zinc-100'>Available Seats:{classItem?.availableSeats}</p>
-                                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.price}</p>
+                                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Price:{classItem?.price}</p>
 
                                         <button
                                             disabled={isAdmin?.admin === true || isInstructor?.instructor === true}
                                             className={
-                                                ` bg-white w-full max-w-[300px] h-8 rounded-md text-base font-playfair mt-5 ${classItem?.availableSeats === 0 ? 'cursor-not-allowed bg-opacity-50' : 'cursor-pointer'} disabled:cursor-not-allowed`
+                                                ` bg-white w-full h-8 rounded-md text-base font-playfair mt-5 absolute bottom-3 left-0 right-0 ${classItem?.availableSeats === 0 ? 'cursor-not-allowed bg-opacity-50' : 'cursor-pointer'} disabled:cursor-not-allowed`
                                             }
                                             onClick={() => handleCheckEligible(classItem)}
                                         >Select</button>
