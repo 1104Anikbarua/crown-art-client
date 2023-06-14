@@ -94,7 +94,7 @@ const Register = () => {
                             const errorCode = error.code;
                             const errorMessage = error.message;
 
-                            console.log(errorCode, errorMessage);
+                            // console.log(errorCode, errorMessage);
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
@@ -115,7 +115,7 @@ const Register = () => {
     //     setPhoto(photo)
 
     // }
-    console.log(errors);
+    // console.log(errors);
     return (
         <div className='w-full max-w-7xl mx-auto mt-20 md:flex justify-between items-center px-5 lg:px-0 font-montserrat'>
             <div className='w-full max-w-md mx-auto hidden md:block'>
