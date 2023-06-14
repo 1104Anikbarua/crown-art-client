@@ -7,7 +7,7 @@ import { BsBuildings } from 'react-icons/bs'
 
 const PopularClasses = () => {
     return (
-        <div className='bg-fuchsia-100 w-full h-60 mt-20'>
+        <div className='bg-fuchsia-100 w-full h-60 mt-20 hidden md:block'>
             <div className='w-full max-w-7xl h-60 mx-auto flex items-center justify-center'>
                 <div className='w-full max-w-7xl flex flex-col h-40 items-center justify-center hover:text-orange-100'>
 

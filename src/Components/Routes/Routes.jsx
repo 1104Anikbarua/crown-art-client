@@ -19,6 +19,10 @@ import RequireAdmin from "../Shared/RequireAdmin/RequireAdmin";
 import RequireInstructor from "../Shared/RequireInstructor/RequireInstructor";
 import NotFound from "../Shared/NotFound/NotFound";
 import MyPaymentHistory from "../Dashboard/StudentDashboard/Pages/MyPaymentHistory/MyPaymentHistory";
+import AboutUs from "../Pages/Home/AboutUs/AboutUs";
+import ContactUs from "../Pages/Home/ContacUs/ContactUs";
+import Terms from "../Pages/Home/Terms/Terms";
+import Payment from "../Pages/Home/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +49,22 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'about',
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: 'terms',
+                element: <Terms></Terms>
+            },
+            // {
+            //     path: 'contact',
+            //     element: <ContactUs></ContactUs>
+            // }
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
         ]
     },
