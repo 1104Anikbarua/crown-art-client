@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Fade } from 'react-reveal';
 
 const PopularClassesSection = () => {
 
@@ -32,16 +33,22 @@ const PopularClassesSection = () => {
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Popular Classes</h1>
             <div className='w-full mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    topClasses?.map((classItem, index) => <div
-                        key={index}
-                        className='w-full max-w-[356px] h-[300px] mx-auto text-center'
+                    topClasses?.map((classItem, index) => <Fade
+                        key={classItem._id}
+                        duration={index * 100}
+                        delay={index * 2000}
                     >
+                        <div
+                            key={index}
+                            className='w-full max-w-[356px] h-[300px] mx-auto text-center'
+                        >
 
-                        <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={classItem?.image} alt="classname image" />
-                        <h3 className='font-playfair font-bold text-2xl text-zinc-100'>{classItem?.className}</h3>
-                        <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.enrolled}</p>
+                            <img className='w-full max-w-[300px] h-48 mx-auto mb-5' src={classItem?.image} alt="classname image" />
+                            <h3 className='font-playfair font-bold text-2xl text-zinc-100'>{classItem?.className}</h3>
+                            <p className='font-playfair font-semibold text-xl text-zinc-100'>Students:{classItem?.enrolled}</p>
 
-                    </div>
+                        </div>
+                    </Fade>
                     )
                 }
             </div>
