@@ -21,4 +21,4 @@
 * React Reveal
 
 # Live Site Link
-open 
+open https://crown-art.web.app/

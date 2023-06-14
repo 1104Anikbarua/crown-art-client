@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const CheckoutForm = ({ classes }) => {
 
@@ -122,7 +123,16 @@ const CheckoutForm = ({ classes }) => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log(data)
+                                // console.log(data)
+                                if (data.modifiedCount) {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: `Payment Sucessfull`,
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
                             })
                     }
 
