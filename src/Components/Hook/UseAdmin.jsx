@@ -11,7 +11,7 @@ const UseAdmin = () => {
         queryKey: ['admin', user?.email], queryFn: async () => {
 
             const response = await axios.get(
-                `http://localhost:5000/users/admin?email=${user?.email}`,
+                `https://batch-7-assignment-12-server.vercel.app/users/admin?email=${user?.email}`,
                 {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access_token')}`,

@@ -10,7 +10,7 @@ const ManageUsers = () => {
     const { isLoading, refetch, data: students } = useQuery({
         // enabled: !!user?.email,
         queryKey: ['students'],
-        queryFn: () => fetch(`http://localhost:5000/users`,
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/users`,
             {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('access_token')}`,
@@ -21,7 +21,7 @@ const ManageUsers = () => {
     })
     // console.log(students)
     const handleMakeInstructor = (id) => {
-        fetch(`http://localhost:5000/instructor/users/${id}`, {
+        fetch(`https://batch-7-assignment-12-server.vercel.app/instructor/users/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -40,7 +40,7 @@ const ManageUsers = () => {
             })
     }
     const handleMakeAdmin = (id) => {
-        fetch(`http://localhost:5000/admin/users/${id}`, {
+        fetch(`https://batch-7-assignment-12-server.vercel.app/admin/users/${id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())

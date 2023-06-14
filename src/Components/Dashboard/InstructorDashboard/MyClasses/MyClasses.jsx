@@ -12,14 +12,14 @@ const MyClasses = () => {
     const { isLoading, refetch, data: classes } = useQuery({
         enabled: !!user?.email,
         queryKey: ['classes', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/instructor/classes?email=${user?.email}`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/instructor/classes?email=${user?.email}`)
             .then(res => res.json())
     })
     // console.log(classes)
 
     const handlePayFees = (id) => {
         const userInfo = { photo: user?.photoURL }
-        fetch(`http://localhost:5000/instructor/${id}`, {
+        fetch(`https://batch-7-assignment-12-server.vercel.app/instructor/${id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(userInfo)

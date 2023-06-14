@@ -33,7 +33,7 @@ const AddClasses = () => {
                 if (data?.status === 200) {
                     const classInfo = { status, className, email, instructorName, availableSeats, price, image: data?.data?.url, photo: user?.photoURL }
                     // console.log(classInfo)
-                    fetch('http://localhost:5000/instructor', {
+                    fetch('https://batch-7-assignment-12-server.vercel.app/instructor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

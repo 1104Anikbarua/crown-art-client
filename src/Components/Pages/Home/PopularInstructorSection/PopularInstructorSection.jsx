@@ -14,7 +14,7 @@ const PopularInstructorSection = () => {
     // ];
     const { isLoading, refetch, data: instructors } = useQuery({
         queryKey: ['popular'],
-        queryFn: () => fetch(`http://localhost:5000/instructors/popular`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/instructors/popular`)
             .then(res => res.json())
     })
     // console.log(instructors)

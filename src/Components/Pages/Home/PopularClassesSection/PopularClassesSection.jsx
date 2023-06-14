@@ -16,7 +16,7 @@ const PopularClassesSection = () => {
     // ];
     const { isLoading, refetch, data: classes } = useQuery({
         queryKey: ['popular-classes'],
-        queryFn: () => fetch(`http://localhost:5000/classes/popular`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/classes/popular`)
             .then(res => res.json())
     })
     // console.log(classes)

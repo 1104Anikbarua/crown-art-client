@@ -21,7 +21,7 @@ const Instructors = () => {
     // ];
     const { isLoading, refetch, data: instructors } = useQuery({
         queryKey: ['instructors'],
-        queryFn: () => fetch(`http://localhost:5000/instructors`)
+        queryFn: () => fetch(`https://batch-7-assignment-12-server.vercel.app/instructors`)
             .then(res => res.json())
     })
     // console.log(isLoading, instructors)
@@ -41,7 +41,7 @@ const Instructors = () => {
     // console.log(uniqueInsturctor)
     // const handleInstructor = (id) => {
     //     const userInfo = { photo: user?.photoURL }
-    //     fetch(`http://localhost:5000/instructor/update/${id}`, {
+    //     fetch(`https://batch-7-assignment-12-server.vercel.app/instructor/update/${id}`, {
     //         method: 'PATCH',
     //         headers: {
     //             'content-type': 'application/json'
