@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
-import axios from 'axios';
+// import axios from 'axios';
 import Swal from 'sweetalert2';
 import { MdNavigateNext } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AddClasses = () => {
     const { user } = useContext(DrawingContext)
-    console.log(user)
+    // console.log(user)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const imageKey = import.meta.env.VITE_IMAGE_KEY;
     const email = user?.email;
@@ -55,13 +56,14 @@ const AddClasses = () => {
                         })
                 }
             })
-
-
     }
     // console.log(errors)
     return (
 
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Add-Class</title>
+            </Helmet>
             <h1 className='text-center font-playfair font-extrabold text-4xl hover:text-orange-100'>Add Class</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

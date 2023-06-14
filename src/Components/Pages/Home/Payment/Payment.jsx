@@ -8,6 +8,7 @@ const Payment = () => {
                 <title>Crown | Pament</title>
             </Helmet>
             <div className='w-full max-w-7xl my-20 mx-auto divide-y-8 divide-gray-300 px-5 lg:px-0'>
+                <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Payment Method</h1>
                 <p className='font-montserrat text-xl mb-2'>
                     At our drawing school, we offer various convenient payment methods to accommodate our students. Here are some common payment methods you can expect:
 

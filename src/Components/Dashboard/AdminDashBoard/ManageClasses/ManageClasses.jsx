@@ -7,6 +7,7 @@ import { ImSpinner3 } from 'react-icons/im'
 import { BsPatchCheck } from 'react-icons/bs'
 import Swal from 'sweetalert2';
 import AdminFeedBack from '../AdminFeedBack/AdminFeedBack';
+import { Helmet } from 'react-helmet-async';
 
 const ManageClasses = () => {
     const [show, setShow] = useState({})
@@ -62,6 +63,9 @@ const ManageClasses = () => {
     }
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Manage-Class</title>
+            </Helmet>
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Manage Users</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

@@ -19,7 +19,7 @@ const PopularClassesSection = () => {
         queryFn: () => fetch(`http://localhost:5000/classes/popular`)
             .then(res => res.json())
     })
-    console.log(classes)
+    // console.log(classes)
     const enrolledStudent = classes?.filter((student) => student.enrolled)
     enrolledStudent?.sort((a, b) => b.enrolled - a.enrolled);
     const topClasses = enrolledStudent?.slice(0, 6);

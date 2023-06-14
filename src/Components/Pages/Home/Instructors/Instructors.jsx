@@ -6,6 +6,7 @@ import LoadingSpinner from '../../../Shared/LoadingSpinner/LoadingSpinner';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Fade, Flip, Zoom } from 'react-reveal';
+import { Helmet } from 'react-helmet-async';
 const Instructors = () => {
     const { user } = useContext(DrawingContext)
     // const classes = [
@@ -70,6 +71,9 @@ const Instructors = () => {
                     <LoadingSpinner></LoadingSpinner>
                     :
                     <div className='w-full max-w-7xl mx-auto my-20'>
+                        <Helmet>
+                            <title>Crown | Instructor</title>
+                        </Helmet>
                         <div className='flex items-center my-5'>
                             <p className='text-orange-100 font-montserrat text-base font-medium'>
                                 <Link to={'/'}>

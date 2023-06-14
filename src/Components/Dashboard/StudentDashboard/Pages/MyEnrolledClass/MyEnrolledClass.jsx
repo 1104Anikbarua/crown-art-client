@@ -3,6 +3,7 @@ import { MdNavigateNext } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { DrawingContext } from '../../../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 
 const MyEnrolledClass = () => {
 
@@ -14,9 +15,12 @@ const MyEnrolledClass = () => {
         queryFn: () => fetch(`http://localhost:5000/enrolled?email=${user?.email}`)
             .then(res => res.json())
     })
-    console.log(classes)
+    // console.log(classes)
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Enrolled-Class</title>
+            </Helmet>
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>My Enrolled Classes</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

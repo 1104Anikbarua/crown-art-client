@@ -6,6 +6,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { MdNavigateNext } from 'react-icons/md';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../../CheckoutForm/CheckoutForm';
+import { Helmet } from 'react-helmet-async';
 
 const key = import.meta.env.VITE_STRIPE_KEY
 const stripePromise = loadStripe(key);
@@ -29,6 +30,9 @@ const MyPaymentPage = () => {
 
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Payment-Page</title>
+            </Helmet>
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Payment Page</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

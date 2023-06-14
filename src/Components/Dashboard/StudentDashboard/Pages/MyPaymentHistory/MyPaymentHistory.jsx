@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { DrawingContext } from '../../../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { MdNavigateNext } from 'react-icons/md';
+import { Helmet } from 'react-helmet-async';
 
 const MyPaymentHistory = () => {
     const { user } = useContext(DrawingContext);
@@ -12,9 +13,9 @@ const MyPaymentHistory = () => {
         queryFn: () => fetch(`http://localhost:5000/payments?email=${user?.email}`)
             .then(res => res.json())
     })
-    console.log(payments)
+    // console.log(payments)
     const courses = payments?.filter((paid) => paid.paid === true)
-    console.log(courses)
+    // console.log(courses)
     const formatDate = (timestamp) => {
         const date = new Date(timestamp);
         return date.toLocaleDateString();
@@ -23,6 +24,9 @@ const MyPaymentHistory = () => {
     // console.log(date)
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Payment-History</title>
+            </Helmet>
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>My Payment History</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

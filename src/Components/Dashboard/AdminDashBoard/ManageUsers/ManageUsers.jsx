@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { MdNavigateNext } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -9,7 +10,13 @@ const ManageUsers = () => {
     const { isLoading, refetch, data: students } = useQuery({
         // enabled: !!user?.email,
         queryKey: ['students'],
-        queryFn: () => fetch(`http://localhost:5000/users`)
+        queryFn: () => fetch(`http://localhost:5000/users`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('access_token')}`,
+                },
+            }
+        )
             .then(res => res.json())
     })
     // console.log(students)
@@ -55,6 +62,9 @@ const ManageUsers = () => {
 
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Manage-Users</title>
+            </Helmet>
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>Manage Users</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

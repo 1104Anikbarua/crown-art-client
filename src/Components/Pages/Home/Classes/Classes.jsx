@@ -7,6 +7,7 @@ import axios from 'axios';
 import LoadingSpinner from '../../../Shared/LoadingSpinner/LoadingSpinner';
 import UseInstructor from '../../../Hook/UseInstructor';
 import UseAdmin from '../../../Hook/UseAdmin';
+import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
     const [courses, setCourses] = useState([])
@@ -92,6 +93,9 @@ const Classes = () => {
                     <LoadingSpinner></LoadingSpinner>
                     :
                     <div className='my-20 w-full max-w-7xl mx-auto'>
+                        <Helmet>
+                            <title>Crown | Classes</title>
+                        </Helmet>
                         <div className='flex items-center my-5'>
                             <p className='text-orange-100 font-montserrat text-base font-medium'>
                                 <Link to={'/'}>

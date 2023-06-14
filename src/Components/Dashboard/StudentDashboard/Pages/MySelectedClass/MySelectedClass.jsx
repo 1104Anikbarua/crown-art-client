@@ -5,6 +5,7 @@ import { DrawingContext } from '../../../../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { HiOutlineTrash } from 'react-icons/hi';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MySelectedClass = () => {
     const { user } = useContext(DrawingContext)
@@ -56,6 +57,9 @@ const MySelectedClass = () => {
     // console.log(unpaid)
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | Selected-Class</title>
+            </Helmet>
             <h1 className='font-playfair font-extrabold text-4xl text-center mb-5 hover:text-orange-100'>My Selected Classes</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

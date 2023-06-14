@@ -4,6 +4,7 @@ import { MdNavigateNext } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyClasses = () => {
     const { user } = useContext(DrawingContext);
@@ -38,6 +39,9 @@ const MyClasses = () => {
     }
     return (
         <div className='w-full max-w-7xl mx-auto'>
+            <Helmet>
+                <title>Crown | My-Class</title>
+            </Helmet>
             <h1 className='text-center font-playfair font-extrabold text-4xl hover:text-orange-100'>My Classes</h1>
             <div className='flex items-center flex-wrap'>
                 <p className='text-orange-100 font-montserrat text-base font-medium'>

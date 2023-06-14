@@ -70,7 +70,7 @@ const HomeSlider = () => {
                         <div className='relative text-center w-full max-w-7xl mx-auto'>
 
                             <h1
-                                className='text-4xl lg:text-6xl text-center font-montserrat font-extrabold my-auto text-white w-full max-w-3xl md:leading-5 mb-5 mx-auto'><span className='text-orange-100 font-playfair lg:text-6xl font-extrabold italic'>Experiences</span> for the <br /> Artist in <span className='text-orange-100 font-playfair lg:text-6xl font-extrabold italic'>you</span></h1>
+                                className='text-4xl lg:text-6xl text-center font-montserrat font-extrabold my-auto text-white w-full max-w-3xl md:leading-5 mb-5 mx-auto'><span className='text-orange-100 font-playfair lg:text-6xl font-extrabold italic'>Starts</span> with <br /> brush & <span className='text-orange-100 font-playfair lg:text-6xl font-extrabold italic'>color</span></h1>
 
                             <button
                                 className='w-40 rounded-md h-10 mt-5 font-bold text-sm bg-orange-100'>More About Us</button>
