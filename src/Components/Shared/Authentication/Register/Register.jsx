@@ -197,14 +197,14 @@ const Register = () => {
                                         value: 6,
                                         message: 'Password must be at least 6 charcter long'
                                     },
-                                    // validate: {
-                                    //     hasCapitalLetter: (value) =>
-                                    //         /^(?=.*[A-Z])/.test(value) ||
-                                    //         'Password must contain at least one capital letter',
-                                    //     hasSpecialCharacter: (value) =>
-                                    //         /^(?=.*[^A-Za-z0-9])/.test(value) ||
-                                    //         'Password must contain at least one special character',
-                                    // },
+                                    validate: {
+                                        hasCapitalLetter: (value) =>
+                                            /^(?=.*[A-Z])/.test(value) ||
+                                            'Password must contain at least one capital letter',
+                                        hasSpecialCharacter: (value) =>
+                                            /^(?=.*[^A-Za-z0-9])/.test(value) ||
+                                            'Password must contain at least one special character',
+                                    },
                                 })} />
                         {
                             errors?.password?.type === 'required' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
@@ -217,12 +217,12 @@ const Register = () => {
                             errors?.password?.type === 'pattern' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
                         }
                         {/* commented for easy signup later uncomment this */}
-                        {/* {
+                        {
                             errors?.password?.type === 'hasCapitalLetter' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
                         }
                         {
                             errors?.password?.type === 'hasSpecialCharacter' && <span className=' text-base font-medium text-red-600'>{errors?.password?.message}</span>
-                        } */}
+                        }
 
                     </div>
 
