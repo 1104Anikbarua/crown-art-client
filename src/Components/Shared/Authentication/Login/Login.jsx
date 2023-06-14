@@ -8,6 +8,7 @@ import { HiEyeSlash } from 'react-icons/hi2';
 import { DrawingContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Google from '../Google/Google';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [show, setShow] = useState(false);
@@ -56,6 +57,9 @@ const Login = () => {
     // console.log(errors);
     return (
         <div className='w-full max-w-7xl mx-auto mt-20 md:flex justify-between items-center px-5 lg:px-0 h-full'>
+            <Helmet>
+                <title>Crown | Login</title>
+            </Helmet>
             <div className='w-full max-w-md mx-auto hidden md:block'>
                 <Lottie animationData={authjson} loop={true} />;
             </div>
