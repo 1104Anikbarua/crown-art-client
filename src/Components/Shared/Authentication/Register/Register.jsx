@@ -36,12 +36,12 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data?.status === 200) {
                     signUpUser(email, password)
                         .then((result) => {
                             const user = result.user;
-                            console.log(user)
+                            // console.log(user)
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
